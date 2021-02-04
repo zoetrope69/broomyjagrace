@@ -47,21 +47,11 @@ const playMessageElement = document.querySelector(".play-message");
 const timerElement = document.querySelector(".timer");
 const broomMessageElement = document.querySelector(".broom-message");
 
-const waitingMusic = new Audio(
-  "https://cdn.glitch.com/7c708f6f-1851-45a5-b230-513d8c268d85%2FMain%20Menu%20-%20Mario%20Kart%20Wii%20(320%20kbps).mp3?v=1612464293455"
-);
-const racingMusic = new Audio(
-  "https://cdn.glitch.com/7c708f6f-1851-45a5-b230-513d8c268d85%2FRainbow%20Road%20-%20Mario%20Kart%20Wii%20(320%20kbps).mp3?v=1612464295863"
-);
-const countdownSound = new Audio(
-  "https://cdn.glitch.com/7c708f6f-1851-45a5-b230-513d8c268d85%2Fbroomyjag-countdown.mp3?v=1612464308398"
-);
-const idlingCarsSound = new Audio(
-  "https://cdn.glitch.com/7c708f6f-1851-45a5-b230-513d8c268d85%2Fbroomyjag-idle-care-noise.mp3?v=1612464308794"
-);
-const finishSound = new Audio(
-  "https://cdn.glitch.com/7c708f6f-1851-45a5-b230-513d8c268d85%2FFinished%20Race%20(First%20Place)%20-%20Mario%20Kart%20Wii%20(320%20kbps).mp3?v=1612464846813"
-);
+const waitingMusic = new Audio("waiting-music.mp3");
+const racingMusic = new Audio("racing-music.mp3");
+const countdownSound = new Audio("broomyjag-countdown.mp3");
+const idlingCarsSound = new Audio("broomyjag-idling.mp3");
+const finishSound = new Audio("finished-sound.mp3");
 waitingMusic.preload = true;
 racingMusic.preload = true;
 countdownSound.preload = true;
@@ -189,9 +179,7 @@ client.on("message", (channel, tags, message) => {
       }
       
       console.log(`!play: ${user.username}`);
-      const helloSound = new Audio(
-        "https://cdn.glitch.com/7c708f6f-1851-45a5-b230-513d8c268d85%2Fbroomyjag-hello.mp3?v=1612464833787"
-      );
+      const helloSound = new Audio("broomyjag-hello");
       helloSound.volume = 1;
       helloSound.play();
       addUserToGroup(user);
@@ -199,9 +187,7 @@ client.on("message", (channel, tags, message) => {
 
     if (hasRaceStarted && command.includes("!br")) {
       if (isAGroupUser || isBGroupUser) {
-        const broomSound = new Audio(
-          "https://cdn.glitch.com/7c708f6f-1851-45a5-b230-513d8c268d85%2Fbroomyjag-broom.mp3?v=1612464833942"
-        );
+        const broomSound = new Audio("broomyjag-broom.mp3");
         broomSound.play();
       }
 
