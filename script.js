@@ -163,7 +163,7 @@ client.on("message", (channel, tags, message) => {
     color: tags.color,
     username: tags["display-name"]
   };
-  const isStreamer = tags?.badges?.broadcaster === "1";
+  const isStreamer = tags && tags.badges && tags.badges.broadcaster === "1";
   const isAGroupUser = RACERS.a.users.find(u => u.username === user.username);
   const isBGroupUser = RACERS.b.users.find(u => u.username === user.username);
 
