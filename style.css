@@ -6,7 +6,7 @@
 
 body {
   font-family: "Comic Sans MS", sans-serif;
-  background: #00ff00;
+  background: transparent;
   overflow: hidden;
   transition: opacity ease-in 1s;
 }
