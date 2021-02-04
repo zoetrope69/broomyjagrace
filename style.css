@@ -131,6 +131,7 @@ h1 {
   box-shadow: inset 1.5em 0 black;
 }
 
+
 .a,
 .b {
   z-index: 3;
@@ -184,8 +185,12 @@ h1 {
   animation: idle 0.1s infinite alternate;
 }
 
+.a__broomy {
+  filter: hue-rotate(-20deg);
+}
+
 .b__broomy {
-  filter: hue-rotate(180deg);
+  filter: hue-rotate(200deg);
   animation-delay: 0.05s;
 }
 
