@@ -39,6 +39,15 @@ h1 {
   transition: opacity 0.16s ease-in;
 }
 
+.play-message {
+  font-size: 4em;
+}
+
+.play-message small {
+  display: block;
+  font-size: 0.5em;
+}
+
 .broom-message {
   background: pink;
   padding: 1em;
