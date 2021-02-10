@@ -5,26 +5,34 @@
 }
 
 body {
-  font-family: "Comic Sans MS", sans-serif;
+  font-family: 'Arial', 'Helvetica', sans-serif;
   background: transparent;
   overflow: hidden;
   transition: opacity ease-in 1s;
 }
 
-h1 {
-  color: black;
-  text-align: right;
+.main-logo {
   position: absolute;
-  right: 2em;
-  background: white;
-  padding: 0.25em 1em;
-  top: 0.5em;
-  border-radius: 5px;
+  z-index: 100;
+  left: calc(10%);
+  width: 80%;
+  top: 9em;
+  filter: drop-shadow(0 0 10px #00000078);
+  transition: opacity 1s ease-in;
+}
+
+.small-logo {
+  position: absolute;
+  right: 4em;
+  top: 1em;
+  height: 4em;
+  transition: opacity 1s ease-in;
+  opacity: 0;
 }
 
 .winner-message,
 .play-message {
-  z-index: 4;
+  z-index: 6;
   margin: 0 auto;
   width: 80%;
   padding: 1em;
@@ -33,14 +41,13 @@ h1 {
   position: absolute;
   border-radius: 50px;
   text-align: center;
-  top: 5%;
+  top: 16%;
   left: 10%;
   opacity: 0;
   transition: opacity 0.16s ease-in;
 }
 
 .play-message {
-  margin-top: 1em;
   font-size: 4em;
 }
 
@@ -71,9 +78,10 @@ h1 {
   height: 2em;
   border-radius: 50%;
   background: yellow;
-  font-size: 3em;
+  font-size: 4em;
+  font-weight: bold;
   text-align: center;
-  padding: 0.25em;
+  padding: 0.45em 0.25em;
   z-index: 4;
   opacity: 0;
 }

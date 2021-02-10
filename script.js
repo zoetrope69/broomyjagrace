@@ -42,6 +42,8 @@ const aElement = document.querySelector(".a");
 const aUsersElement = aElement.querySelector(".a__users");
 const bElement = document.querySelector(".b");
 const bUsersElement = bElement.querySelector(".b__users");
+const mainLogoElement = document.querySelector(".main-logo");
+const smallLogoElement = document.querySelector(".small-logo");
 const winnerMessageElement = document.querySelector(".winner-message");
 const playMessageElement = document.querySelector(".play-message");
 const timerElement = document.querySelector(".timer");
@@ -49,6 +51,7 @@ const broomMessageElement = document.querySelector(".broom-message");
 
 const waitingMusic = new Audio("waiting-music.mp3");
 const racingMusic = new Audio("racing-music.mp3");
+const announcementSound = new Audio("broomyjag-racer-announcement.mp3");
 const countdownSound = new Audio("broomyjag-countdown.mp3");
 const idlingCarsSound = new Audio("broomyjag-idling.mp3");
 const finishSound = new Audio("finished-sound.mp3");
@@ -61,12 +64,19 @@ finishSound.preload = true;
 waitingMusic.loop = true;
 idlingCarsSound.loop = true;
 racingMusic.loop = true;
-waitingMusic.volume = 0.4;
-racingMusic.volume = 0.4;
-finishSound.volume = 0.4;
+waitingMusic.volume = 0.5;
+racingMusic.volume = 0.7;
+finishSound.volume = 0.8;
 
 idlingCarsSound.play();
 waitingMusic.play();
+announcementSound.play();
+
+// hide main logo
+setTimeout(() => {
+  mainLogoElement.style.opacity = 0;
+  smallLogoElement.style.opacity = 1;
+}, 2500)
 
 function updateGame() {
   aUsersElement.innerHTML = "";
@@ -140,7 +150,7 @@ function startRace() {
     timerElement.innerText = timer;
     timerElement.className = `timer timer--${timer}`;
     if (timer === 0) {
-      timerElement.innerText = "go";
+      timerElement.innerText = "GO";
       timerElement.className = `timer timer--go`;
       hasRaceStarted = true;
       updateGame();
@@ -179,7 +189,7 @@ client.on("message", (channel, tags, message) => {
       }
       
       console.log(`!play: ${user.username}`);
-      const helloSound = new Audio("broomyjag-hello");
+      const helloSound = new Audio("broomyjag-hello.mp3");
       helloSound.volume = 1;
       helloSound.play();
       addUserToGroup(user);
